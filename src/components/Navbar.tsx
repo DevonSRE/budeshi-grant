@@ -6,30 +6,30 @@ import { usePathname, useRouter } from 'next/navigation';
 import {
   useTheme,
   useMediaQuery,
-
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemButton,
 } from '@mui/material';
+// import MenuIcon from '@mui/icons-material/Menu';
 import { Button } from './ui/button';
+import { MenuIcon } from 'lucide-react';
 
 const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  // const { user, logout } = useAuth();
   const [activeTab, setActiveTab] = useState('/');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-  const handleProfile = () => {
-    // router.push(`/${user?.role.split("_").join("-")}/profile`);
-  };
-
-  // const handleSettings = () => {
-  //   router.push(`/${user?.role.split("_").join("-")}/profile?tab=1`);
-  // };
+  useEffect(() => {
+    setActiveTab(pathname);
+  }, [pathname]);
 
   const navlinks = [
     { name: 'Home', path: '/' },
@@ -39,13 +39,6 @@ const Navbar = () => {
     { name: 'State of Procurement', path: '/state-of-procurement' },
   ];
 
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
-  useEffect(() => {
-    setActiveTab(pathname);
-  }, [pathname]);
-
   const handleLogin = () => {
     setMobileMenuOpen(false);
     router.push('/auth/login');
@@ -53,28 +46,29 @@ const Navbar = () => {
 
   return (
     <>
+      {/* <nav className="px-6 md:px-12 lg:px-20 fixed top-0 left-0 z-30 pt-[1rem] w-full bg-white"> */}
       <nav className="px-6 md:px-12 lg:px-20 fixed top-0 left-0 z-30 pt-[1rem] w-full ">
-        <div className="flex gap-10 justify-between items-center w-full max-w-[1440px] mt-[0.5rem] bg-white shadow-[0_2px_18px_-3px_rgba(0,0,0,0.10)] rounded-l-full rounded-r-full px-6 py-2 mx-auto">
-          <div>
-            <Link href="/" className="flex items-center">
-              <img
-                src="/assets/logo.svg"
-                alt="Budeshi Logo"
-                className="w-12 md:w-16"
-              />
-            </Link>
-          </div>
+        <div className="flex gap-4 bg-white justify-between items-center w-full max-w-[1440px] shadow-[0_2px_18px_-3px_rgba(0,0,0,0.10)] rounded-full px-6 py-2 mx-auto">
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
+            <img
+              src="/assets/logo.svg"
+              alt="Budeshi Logo"
+              className="w-12 md:w-16"
+            />
+          </Link>
 
+          {/* Desktop Navigation */}
           {!isMobile && (
-            <div className="flex lg:gap-4 items-center">
+            <div className="flex gap-4 items-center">
               {navlinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.path}
                   className={`${activeTab === link.path
                     ? 'text-[#223A90] font-medium border-b-2 pb-1 border-[#223A90]'
-                    : ''
-                    } px-2`}
+                    : 'text-gray-700'
+                    } px-2 transition-colors duration-200`}
                 >
                   {link.name}
                 </Link>
@@ -82,92 +76,66 @@ const Navbar = () => {
             </div>
           )}
 
-          <div className="flex gap-4">
-            {/* Grant Application - Outlined Style */}
-            <Button
-              variant="outline"
-              className="rounded-full border-2 border-black text-black hover:bg-black hover:text-white"
-            >
-              Grant Application
-            </Button>
-
-            {/* Login - Solid Blue */}
-            <Button
-              className="rounded-full w-32 bg-[#223A90] text-white hover:bg-[#1a2f6c]"
-            >
-              Login
-            </Button>
-          </div>
-          {/* <div>
-            {isMobile ? (
-              <IconButton
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                onClick={() => setMobileMenuOpen(true)}
-              >
+          {/* Buttons or Mobile Menu Icon */}
+          <div className="flex items-center gap-3">
+            {!isMobile ? (
+              <>
+                <Button
+                  variant="outline"
+                  className="rounded-full border-2 border-black text-black hover:bg-black hover:text-white"
+                >
+                  Grant Application
+                </Button>
+                <Button
+                  className="rounded-full w-32 bg-[#223A90] text-white hover:bg-[#1a2f6c]"
+                  onClick={handleLogin}
+                >
+                  Login
+                </Button>
+              </>
+            ) : (
+              <IconButton onClick={() => setMobileMenuOpen(true)}>
                 <MenuIcon />
               </IconButton>
-            ) : (
-              <div className="flex items-center justify-between w-full">
-                {user ? (
-               <IconButton onClick={handleMenuClick}>
-                    <Avatar
-                      alt={
-                        user?.name ?? user?.email.split('@')[0].toUpperCase()
-                      }
-                      src={user?.avatar}
-                    />
-                  </IconButton>
-                  <Menu
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={() => setAnchorEl(null)}
-                  >
-                    <MenuItem onClick={handleProfile}>Profile</MenuItem>
-                    <MenuItem onClick={handleSettings}>Settings</MenuItem>
-                    <MenuItem onClick={logout}>Logout</MenuItem>
-                  </Menu>
-                ) : (
-                  <Button title="Login" onClick={handleLogin} />
-                )}
-              </div>
             )}
-          </div> */}
+          </div>
         </div>
       </nav>
 
-      {/* <Drawer
+      {/* Mobile Drawer Menu */}
+      <Drawer
         anchor="right"
-        PaperProps={{
-          sx: { width: '50%', px: '1rem' },
-        }}
         open={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
+        PaperProps={{
+          sx: { width: '75vw', padding: '1rem' },
+        }}
       >
-        <List className="w-3/5">
-          {navlinks.map((text, index) => (
-            <ListItem
-              key={`navlink-${index}`}
-              component={Link}
-              href={text.path.toLowerCase()}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <ListItemText primary={text.name} />
+        <List>
+          {navlinks.map((link) => (
+            <ListItem disablePadding key={link.name}>
+              <ListItemButton
+                component={Link}
+                href={link.path}
+                onClick={() => setMobileMenuOpen(false)}
+                selected={activeTab === link.path}
+              >
+                <ListItemText
+                  primary={link.name}
+                  primaryTypographyProps={{
+                    fontWeight: activeTab === link.path ? 'bold' : 'normal',
+                  }}
+                />
+              </ListItemButton>
             </ListItem>
           ))}
+          <ListItem disablePadding>
+            <ListItemButton onClick={handleLogin}>
+              <ListItemText primary="Login" />
+            </ListItemButton>
+          </ListItem>
         </List>
-        {user ? (
-          <Button
-            title="Logout"
-            otherStyles="w-fit bg-red-500 text-white"
-            icon={<LogOut />}
-            onClick={logout}
-          />
-        ) : (
-          <Button variant={"outline"} title="Login" onClick={handleLogin} />
-        )}
-      </Drawer> */}
+      </Drawer>
     </>
   );
 };
