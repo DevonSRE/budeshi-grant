@@ -1,5 +1,6 @@
-import { Facebook, Instagram, Linkedin, Mail, Phone, Twitter } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
     return (
@@ -11,7 +12,9 @@ export default function Footer() {
                         <div>
                             <div className="flex items-center mb-4">
                                 <Link href="/" className="flex items-center">
-                                    <img
+                                    <Image
+                                        height={"100"}
+                                        width={"100"}
                                         src="/assets/logo.svg"
                                         alt="Budeshi Logo"
                                         className="w-12 md:w-16"

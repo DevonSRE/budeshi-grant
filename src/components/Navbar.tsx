@@ -4,20 +4,11 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import {
-  IconButton,
   useTheme,
   useMediaQuery,
-  List,
-  Drawer,
-  Menu,
-  Avatar,
-  MenuItem,
-  ListItem,
-  ListItemText,
+
 } from '@mui/material';
-import { MenuIcon, LogOut } from 'lucide-react';
 import { Button } from './ui/button';
-// import { useAuth } from '../contexts/AuthContext';
 
 const Navbar = () => {
   const router = useRouter();
