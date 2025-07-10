@@ -89,13 +89,17 @@ const GrantApplicationPage = () => {
                         </p>
                     </div>
                 </div>
-
             </div>
-            {/* <div className="flex  justify-between">
+            <div className="flex relative -mt-8   justify-around">
                 <img
                     src="/assets/dot.svg"
                     alt="Budeshi Logo"
-                    className="w-12 md:w-16"
+                    className="w-10 md:w-10"
+                />
+                <img
+                    src="/assets/dot.svg"
+                    alt="Budeshi Logo"
+                    className="w-10 md:w-10"
                 />
                 <img
                     src="/assets/dot.svg"
@@ -105,21 +109,14 @@ const GrantApplicationPage = () => {
                 <img
                     src="/assets/dot.svg"
                     alt="Budeshi Logo"
-                    className="w-12 md:w-16"
+                    className="w-10 md:w-10"
                 />
                 <img
                     src="/assets/dot.svg"
                     alt="Budeshi Logo"
-                    className="w-12 md:w-16"
+                    className="w-10 md:w-10"
                 />
-                <img
-                    src="/assets/dot.svg"
-                    alt="Budeshi Logo"
-                    className="w-12 md:w-16"
-                />
-            </div> */}
-
-
+            </div>
             <Countdown />
 
             {/* Eligibility Criteria */}
@@ -138,7 +135,7 @@ const GrantApplicationPage = () => {
                                             <Image
                                                 height={"100"}
                                                 width={"100"}
-                                                src="/assets/patterns.svg"
+                                                src="/assets/Patterns.svg"
                                                 alt="Budeshi Logo"
                                                 className="w-64"
                                             />
