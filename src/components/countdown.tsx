@@ -79,7 +79,7 @@ function CountdownTimeUnit({ value, label }: { value: string; label: string }) {
     <div className="flex flex-col items-center">
       <div className="flex gap-1">
         {value.split('').map((digit, index) => (
-          <div key={index} className="w-16 h-20 bg-gradient-to-b from-[#223A90] to-black flex items-center justify-center shadow-lg border-2 boder-gradient-to-b  from-[#223A90] to-black">
+          <div key={index} className="w-16 h-20 bg-gradient-to-b from-[#223A90] to-black flex items-center justify-center shadow-lg ">
             <span className="text-white text-4xl font-bold font-mono tabular-nums">
               {digit}
             </span>
