@@ -48,9 +48,9 @@ export default function Footer() {
                     <div>
                         <h4 className="text-lg text-black font-semibold mb-4">Contact</h4>
                         <ul className="space-y-2 text-gray-400 text-sm">
-                            <li>070 000 0000</li>
-                            <li>MaryJammal: Block L,</li>
-                            <li>House 2, Warimo,</li>
+                            <li>+234 810 943 5439</li>
+                            <li>Mercy Samuelson, Block L,  Abuja</li>
+                            <li>House 2, Karmo,</li>
                             <li>Abuja</li>
                         </ul>
 
@@ -72,7 +72,7 @@ export default function Footer() {
                             <Mail className="w-4 h-4" /> <span className="ml-2">info@budeshi.ng</span>
                         </p>
                         <p className="text-gray-400 text-sm flex items-center justify-center sm:justify-start">
-                            <Phone className="w-4 h-4" /> <span className="ml-2">+234-700-000-0000</span>
+                            <Phone className="w-4 h-4" /> <span className="ml-2">+234 810 943 5439</span>
                         </p>
                     </div>
                 </div>
