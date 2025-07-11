@@ -36,7 +36,6 @@ function Countdown({ targetDate, onComplete, className }: CountdownProps) {
         }
       }
 
-      // Calculate time units
       const seconds = Math.floor((difference / 1000) % 60)
       const minutes = Math.floor((difference / 1000 / 60) % 60)
       const hours = Math.floor((difference / (1000 * 60 * 60)) % 24)
@@ -50,10 +49,8 @@ function Countdown({ targetDate, onComplete, className }: CountdownProps) {
       }
     }
 
-    // Update immediately
     setTimeLeft(calculateTimeLeft())
 
-    // Update every second
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft())
     }, 1000)
@@ -62,7 +59,7 @@ function Countdown({ targetDate, onComplete, className }: CountdownProps) {
   }, [targetDate, onComplete])
 
   return (
-    <div className={`flex items-center justify-center gap-4 p-8 ${className}`}>
+    <div className={`flex flex-wrap justify-center items-center gap-2 sm:gap-4 px-4 py-6 sm:p-8 ${className}`}>
       <CountdownTimeUnit value={timeLeft.days} label="Days" />
       <CountdownSeparator />
       <CountdownTimeUnit value={timeLeft.hours} label="Hours" />
@@ -74,38 +71,44 @@ function Countdown({ targetDate, onComplete, className }: CountdownProps) {
   )
 }
 
+
 function CountdownTimeUnit({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col items-center">
-      <div className="flex gap-1">
+      <div className="flex gap-1 sm:gap-2">
         {value.split('').map((digit, index) => (
-          <div key={index} className="w-16 h-20 bg-gradient-to-b from-[#223A90] to-black flex items-center justify-center shadow-lg ">
-            <span className="text-white text-4xl font-bold font-mono tabular-nums">
+          <div 
+            key={index}
+            className="w-8 h-8 sm:w-16 sm:h-24 bg-gradient-to-b from-[#223A90] to-black flex items-center justify-center shadow-lg"
+          >
+            <span className="text-white text-md sm:text-2xl font-bold font-mono tabular-nums">
               {digit}
             </span>
           </div>
         ))}
       </div>
-      <span className="text-gray-700 text-xs font-medium mt-2 uppercase tracking-wider">
+      <span className="text-gray-700 text-[10px] sm:text-xs font-medium mt-1 sm:mt-2 uppercase tracking-wider">
         {label}
       </span>
     </div>
   )
 }
 
+
 function CountdownSeparator() {
   return (
-    <div className="flex flex-col gap-2 pb-6">
-      <div className="w-2 h-2 bg-gray-800 rounded-full"></div>
-      <div className="w-2 h-2 bg-gray-800 rounded-full"></div>
+    <div className="flex item-center justify flex-col gap-1 sm:gap-2 pb-4 sm:pb-6">
+      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-800 rounded-full"></div>
+      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-800 rounded-full"></div>
     </div>
   )
 }
 
+
 // Demo component with July 11, 2025 deadline
 function CountdownDemo() {
   // Set target date to July 11, 2025 at midnight
-  const targetDate = new Date('2025-07-11T00:00:00')
+  const targetDate = new Date('2025-07-31T00:00:00')
 
   return (
     <div className="flex items-center py-10 justify-center">

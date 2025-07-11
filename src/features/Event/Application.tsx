@@ -90,31 +90,31 @@ const GrantApplicationPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex relative -mt-8   justify-around">
+            <div className="flex relative -mt-5 justify-around">
                 <img
                     src="/assets/dot.svg"
                     alt="Budeshi Logo"
-                    className="w-10 md:w-10"
+                    className="w-8 md:w-8"
                 />
                 <img
                     src="/assets/dot.svg"
                     alt="Budeshi Logo"
-                    className="w-10 md:w-10"
+                    className="w-8 md:w-8"
                 />
                 <img
                     src="/assets/dot.svg"
                     alt="Budeshi Logo"
-                    className="w-12 md:w-16"
+                    className="w-12 md:w-12"
                 />
                 <img
                     src="/assets/dot.svg"
                     alt="Budeshi Logo"
-                    className="w-10 md:w-10"
+                    className="w-8 md:w-8"
                 />
                 <img
                     src="/assets/dot.svg"
                     alt="Budeshi Logo"
-                    className="w-10 md:w-10"
+                    className="w-8 md:w-8"
                 />
             </div>
             <Countdown />
