@@ -66,9 +66,9 @@ const Navbar = () => {
                   key={link.name}
                   href={link.path}
                   className={`${activeTab === link.path
-                    ? 'text-[#223A90] font-medium border-b-2 pb-1 border-[#223A90]'
+                    ? 'text-[#223A90] font-medium text-sm border-b-2 pb-1 border-[#223A90]'
                     : 'text-gray-700'
-                    } px-2 transition-colors duration-200`}
+                    } px-2 transition-colors duration-200 text-sm`}
                 >
                   {link.name}
                 </Link>
