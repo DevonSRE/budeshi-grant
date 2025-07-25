@@ -28,28 +28,28 @@ const GrantApplicationPage = () => {
                 "• The organisation must demonstrate its capacity to set up a basic internal control system, including segregation of duties, financial accountability, and reporting mechanisms."
             ]
         },
-        {
-            title: "FINANCIAL MANAGEMENT CAPACITY",
-            content: [
-                "Local organisation must have a functional bank account in the name of the organisation, with:",
-                "• The organisation should have systems and the capacity of basic financial record-keeping",
-                "• The organisation must submit to having the control systems audited and evaluate effectiveness in project activities, with financial reporting to FPRC."
-            ]
-        },
-        {
-            title: "PROGRAMMATIC FOCUS",
-            content: [
-                "Proposed activities must align with the thematic priorities of the grant call across any sector for 2023/2024 Federal Procurement across the state (e.g. health, education, gender equality, youth development, climate action, or governance).",
-                "• Projects must address local needs, promote community participation, and demonstrate potential for measurable impact strengthening procurement accountability in the state."
-            ]
-        },
-        {
-            title: "COMPLIANCE AND ETHICAL STANDING",
-            content: [
-                "The organisation/individual must not be under any legal investigation, litigation, or blacklisted or suspended by any donor, development agency, or regulatory authority.",
-                "• Must uphold ethical principles including non-discrimination, transparency, accountability, and respect for human rights."
-            ]
-        },
+        // {
+        //     title: "FINANCIAL MANAGEMENT CAPACITY",
+        //     content: [
+        //         "Local organisation must have a functional bank account in the name of the organisation, with:",
+        //         "• The organisation should have systems and the capacity of basic financial record-keeping",
+        //         "• The organisation must submit to having the control systems audited and evaluate effectiveness in project activities, with financial reporting to FPRC."
+        //     ]
+        // },
+        // {
+        //     title: "PROGRAMMATIC FOCUS",
+        //     content: [
+        //         "Proposed activities must align with the thematic priorities of the grant call across any sector for 2023/2024 Federal Procurement across the state (e.g. health, education, gender equality, youth development, climate action, or governance).",
+        //         "• Projects must address local needs, promote community participation, and demonstrate potential for measurable impact strengthening procurement accountability in the state."
+        //     ]
+        // },
+        // {
+        //     title: "COMPLIANCE AND ETHICAL STANDING",
+        //     content: [
+        //         "The organisation/individual must not be under any legal investigation, litigation, or blacklisted or suspended by any donor, development agency, or regulatory authority.",
+        //         "• Must uphold ethical principles including non-discrimination, transparency, accountability, and respect for human rights."
+        //     ]
+        // },
         {
             title: "LOCAL ENGAGEMENT AND SUSTAINABILITY",
             content: [
