@@ -79,9 +79,9 @@ function CountdownTimeUnit({ value, label }: { value: string; label: string }) {
         {value.split('').map((digit, index) => (
           <div 
             key={index}
-            className="w-8 h-8 sm:w-16 sm:h-24 bg-gradient-to-b from-[#223A90] to-black flex items-center justify-center shadow-lg"
+            className="w-5 h-8 sm:w-14 sm:h-20 bg-gradient-to-b from-[#223A90] to-black flex items-center justify-center shadow-lg"
           >
-            <span className="text-white text-md sm:text-2xl font-bold font-mono tabular-nums">
+            <span className="text-white text-lg sm:text-6xl font-semibold font-bebas-neue tabular-nums">
               {digit}
             </span>
           </div>
@@ -114,7 +114,7 @@ function CountdownDemo() {
     <div className="flex items-center py-10 justify-center">
       <div className="text-center">
         {/* <h1 className="text-3xl font-bold text-gray-800 mb-4">Countdown Timer</h1> */}
-        <p className="">Countdown to Grant Application Submission</p>
+        <p className="">Application Portal opens in:</p>
         {/* <Countdown  targetDate={targetDate} onComplete={() => alert('Countdown completed! July 11, 2025 has arrived!')}/> */}
         <Countdown targetDate={targetDate} />
       </div>

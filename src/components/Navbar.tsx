@@ -32,16 +32,16 @@ const Navbar = () => {
   }, [pathname]);
 
   const navlinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Listing', path: '/projects' },
-    { name: 'Contractors', path: '/contractors' },
-    { name: 'Visualization', path: '/visualization' },
-    { name: 'State of Procurement', path: '/state-of-procurement' },
+    { name: 'Home', path: 'https://budeshi.ng' },
+    { name: 'Listing', path: 'https://budeshi.ng/projects' },
+    { name: 'Contractors', path: 'https://budeshi.ng/contractors' },
+    { name: 'Visualization', path: 'https://budeshi.ng/visualization' },
+    { name: 'State of Procurement', path: 'https://budeshi.ng/state-of-procurement' },
   ];
 
   const handleLogin = () => {
     setMobileMenuOpen(false);
-    router.push('/auth/login');
+    router.push('https://budeshi.ng/auth/login');
   };
 
   return (
