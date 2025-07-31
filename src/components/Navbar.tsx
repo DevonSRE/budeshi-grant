@@ -14,8 +14,9 @@ import {
   ListItemButton,
 } from '@mui/material';
 // import MenuIcon from '@mui/icons-material/Menu';
-import { Button } from './ui/button';
+import { Button, buttonVariants } from './ui/button';
 import { MenuIcon } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const Navbar = () => {
   const router = useRouter();
@@ -80,12 +81,15 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             {!isMobile ? (
               <>
-                <Button
-                  variant="outline"
-                  className="rounded-full border-2 border-black text-black hover:bg-black hover:text-white"
+                <Link
+                  href={'https://grants.budeshi.ng/grants'}
+                  className={cn(
+                    buttonVariants({ variant: 'outline' }),
+                    "rounded-full border-2 border-black text-black hover:bg-black hover:text-white",
+                  )}
                 >
                   Grant Application
-                </Button>
+                </Link>
                 <Button
                   className="rounded-full w-32 bg-[#223A90] text-white hover:bg-[#1a2f6c]"
                   onClick={handleLogin}
